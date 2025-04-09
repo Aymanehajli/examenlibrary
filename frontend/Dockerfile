@@ -1,20 +1,16 @@
-# Utiliser l'image officielle Node.js comme image parente
-FROM node:16
+FROM node:18-alpine as build
 
-# Définir le répertoire de travail dans le conteneur
 WORKDIR /app
 
-# Copier package.json et package-lock.json
 COPY package*.json ./
-
-# Installer les dépendances
 RUN npm install
 
-# Copier le reste de l'application
 COPY . .
+RUN npm run build
 
-# Exposer le port sur lequel le frontend sera accessible
-EXPOSE 5173
+FROM nginx:alpine
 
-# Lancer Vite en mode développement
-CMD ["npm", "run", "dev"]
+
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]

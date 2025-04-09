@@ -5,7 +5,7 @@ import { createForm } from './Create.tsx';  // Assuming 'createForm' is a reusab
 
 // Définition du type Book
 interface Book {
-  _id: string;
+  _id?: string;
   titre: string;
   auteur: string;
   ISBN: string;

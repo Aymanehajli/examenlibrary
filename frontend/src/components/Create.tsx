@@ -4,10 +4,12 @@ import axios from 'axios';
 
 // Définition du type Book
 interface Book {
+  _id?: string; // optionnel pour compatibilité création + édition
   titre: string;
   auteur: string;
   ISBN: string;
 }
+
 
 // Définition du type FormField
 interface FormField {

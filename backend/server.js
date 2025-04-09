@@ -23,7 +23,7 @@ app.use(express.json()); // Pour parser le JSON
 app.use('/api', bookRoutes); // Préfixe les routes par /api
 
 
-mongoose.connect('mongodb://localhost:27017/library', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect('mongodb://localhost:27017/librarydb', { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log('MongoDB connecté'))
     .catch(err => console.error('Erreur de connexion MongoDB:', err));
 
@@ -32,6 +32,6 @@ app.get("/", (req, res) => {
     res.send("Server is ready");
 });
 
-app.listen(5000, () => {
-    console.log('Server started at http://localhost:5000');
+app.listen(8080, () => {
+    console.log('Server started at http://localhost:8080');
 });

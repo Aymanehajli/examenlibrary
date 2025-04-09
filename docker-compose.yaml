@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  front:
+    build: ./frontend
+    container_name: frontlibrary
+    ports:
+      - "3000:80"
+    networks:
+      - mern-network
+
+  backend:
+    build: ./backend
+    container_name: backlibrary
+    ports:
+      - "8080:80"
+    environment:
+      - MONGODB_URI=mongodb://mongo:27017/librarydb
+    networks:
+      - mern-network
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo
+    container_name: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    networks:
+      - mern-network
+
+volumes:
+  mongo-data:
+
+networks:
+  mern-network:
+
