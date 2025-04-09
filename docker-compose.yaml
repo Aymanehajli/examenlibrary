@@ -13,7 +13,7 @@ services:
     build: ./backend
     container_name: backlibrary
     ports:
-      - "8080:80"
+      - "8080:8080"
     environment:
       - MONGODB_URI=mongodb://mongo:27017/librarydb
     networks:
