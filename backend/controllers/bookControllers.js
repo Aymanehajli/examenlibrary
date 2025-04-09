@@ -1,4 +1,4 @@
-import Book from "../models/Book";
+import Book from "../models/Book.js";
 import mongoose from "mongoose";
 import { body, validationResult } from 'express-validator';
 

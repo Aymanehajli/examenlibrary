@@ -16,6 +16,8 @@ services:
       - "8080:8080"
     environment:
       - MONGODB_URI=mongodb://mongo:27017/librarydb
+      - PORT=8080
+      - NODE_ENV=development
     networks:
       - mern-network
     depends_on:
